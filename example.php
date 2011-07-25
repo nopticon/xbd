@@ -132,4 +132,43 @@ else
 	_print('Windows version not found.');
 }
 
+// -----------------------------------------------------------------------------------
+// Detect if Windows version is below or above a determined version.
+// Based on $windows_array you can determine the version number for the condition.
+// -----------------------------------------------------------------------------------
+
+$_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9b2pre) Gecko/2007120505 Minefield/3.0b2pre';
+
+$windows_array = array(
+	'6.1' => 'Windows 7',
+	'6.0' => 'Windows Vista',
+	'5.2' => 'Windows Server 2003 or Windows XP x64',
+	'5.1' => 'Windows XP'
+);
+
+$ret = _browser('windows nt', false, false, false, true);
+
+if (isset($ret['version']) && !empty($ret['version']))
+{
+	$detect_by_name = 'Windows Vista';
+	$detect_by_number = array_search($detect_by_name, $windows_array);
+	
+	if ($ret['version'] == $detect_by_number)
+	{
+		_print('Detected version (' . $windows_array[$ret['version']] . ') is equal to ' . $windows_array[$detect_by_number]);
+	}
+	elseif ($ret['version'] <= $detect_by_number)
+	{
+		_print('Detected version ' . $windows_array[$ret['version']] . ' is below to ' . $windows_array[$detect_by_number]);
+	}
+	else
+	{
+		_print('Detected version ' . $windows_array[$ret['version']] . ' is above to ' . $windows_array[$detect_by_number]);
+	}
+}
+else
+{
+	_print('Windows version not found.');
+}
+
 ?>

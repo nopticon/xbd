@@ -17,22 +17,25 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-function _print($name, $ret)
+function _print($name, $ret = false)
 {
 	echo $name . '<br />';
 	
-	if (!f($ret))
+	if ($ret !== false)
 	{
-		$ret = 'false';
+		if (!f($ret))
+		{
+			$ret = 'false';
+		}
+		elseif ($ret == '1')
+		{
+			$ret = 'true';
+		}
+		
+		echo '<blockquote><pre>';
+		print_r($ret);
+		echo '</pre></blockquote>';
 	}
-	elseif ($ret == '1')
-	{
-		$ret = 'true';
-	}
-	
-	echo '<blockquote><pre>';
-	print_r($ret);
-	echo '</pre></blockquote>';
 	
 	return;
 }
