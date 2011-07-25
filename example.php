@@ -1,7 +1,5 @@
 <?php
 /*
-$Id: v 1.4 2009/12/08 11:40:00 $
-
 <XBD, Extended Browser Detection.>
 Copyright (C) <2009>  <Guillermo Azurdia, www.nopticon.com>
 
@@ -102,5 +100,36 @@ _print('OS X bool', $ret);
 
 $ret = _browser('os x', false, false, false, true);
 _print('Mac OS X array', $ret);
+
+// -----------------------------------------------------------------------------------
+// How to know the Windows version from the client?
+//
+// I found a useful information page from Microsoft explaining the user agent strings here:
+// http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
+//
+// So, getting the "Windows NT" part from the useragent, we can known the Windows version :-) 
+// -----------------------------------------------------------------------------------
+
+$_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9b2pre) Gecko/2007120505 Minefield/3.0b2pre';
+
+$ret = _browser('windows nt', false, false, false, true);
+
+_print('Windows array', $ret);
+
+$windows_array = array(
+	'6.1' => 'Windows 7',
+	'6.0' => 'Windows Vista',
+	'5.2' => 'Windows Server 2003 or Windows XP x64',
+	'5.1' => 'Windows XP'
+);
+
+if (isset($windows_array[$ret['version']]))
+{
+	_print('Client is using', $windows_array[$ret['version']]);
+}
+else
+{
+	_print('Windows version not found.');
+}
 
 ?>

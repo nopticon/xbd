@@ -1,7 +1,5 @@
 <?php
 /*
-$Id: v 1.4 2009/12/08 11:22:00 $
-
 <XBD, Extended Browser Detection.>
 Copyright (C) <2009>  <Guillermo Azurdia, www.nopticon.com>
 
