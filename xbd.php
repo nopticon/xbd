@@ -61,7 +61,7 @@ function w($a = '', $d = false) {
 If you want to add more browsers, do it but be careful... order matters.
 */
 function _browser($a_browser = false, $a_version = false, $name = false, $d_name = false, $ret_ary = false) {
-	$browser_list  = 'nokia motorola samsung sonyericsson mobi mini skyfire blackberry iphone htc android mobile palmsource mot ';
+	$browser_list  = 'nokia motorola samsung sonyericsson iphone htc android mobile mobi mini skyfire blackberry palmsource mot ';
 	$browser_list .= 'flock firefox konqueror lobo msie netscape navigator mosaic netsurf lynx amaya omniweb ';
 	$browser_list .= 'googlebot googlebot-image feedfetcher-google gigabot msnbot thunderbird fennec minimo ';
 	$browser_list .= 'minefield chrome wget cheshire safari avant camino seamonkey aol bloglines ';
