@@ -39,7 +39,7 @@ require_once('./xbd.php');
 //
 // * XBD 1.1 *
 // ==
-// 
+//
 // After a request by email about how to detect OS X version, I've added
 // a new argument to return array data based on first argument.
 // -----------------------------------------------------------------------------------
@@ -107,7 +107,7 @@ _print('Mac OS X array', $ret);
 // I found a useful information page from Microsoft explaining the user agent strings here:
 // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
 //
-// So, getting the "Windows NT" part from the useragent, we can known the Windows version :-) 
+// So, getting the "Windows NT" part from the useragent, we can known the Windows version :-)
 // -----------------------------------------------------------------------------------
 
 $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9b2pre) Gecko/2007120505 Minefield/3.0b2pre';
@@ -123,12 +123,9 @@ $windows_array = array(
 	'5.1' => 'Windows XP'
 );
 
-if (isset($windows_array[$ret['version']]))
-{
+if (isset($windows_array[$ret['version']])) {
 	_print('Client is using', $windows_array[$ret['version']]);
-}
-else
-{
+} else {
 	_print('Windows version not found.');
 }
 
@@ -148,27 +145,17 @@ $windows_array = array(
 
 $ret = _browser('windows nt', false, false, false, true);
 
-if (isset($ret['version']) && !empty($ret['version']))
-{
+if (isset($ret['version']) && !empty($ret['version'])) {
 	$detect_by_name = 'Windows Vista';
 	$detect_by_number = array_search($detect_by_name, $windows_array);
-	
-	if ($ret['version'] == $detect_by_number)
-	{
+
+	if ($ret['version'] == $detect_by_number) {
 		_print('Detected version (' . $windows_array[$ret['version']] . ') is equal to ' . $windows_array[$detect_by_number]);
-	}
-	elseif ($ret['version'] <= $detect_by_number)
-	{
+	} elseif ($ret['version'] <= $detect_by_number) {
 		_print('Detected version ' . $windows_array[$ret['version']] . ' is below to ' . $windows_array[$detect_by_number]);
-	}
-	else
-	{
+	} else {
 		_print('Detected version ' . $windows_array[$ret['version']] . ' is above to ' . $windows_array[$detect_by_number]);
 	}
-}
-else
-{
+} else {
 	_print('Windows version not found.');
 }
-
-?>
