@@ -61,13 +61,15 @@ function w($a = '', $d = false) {
 If you want to add more browsers, do it but be careful... order matters.
 */
 function _browser($a_browser = false, $a_version = false, $name = false, $d_name = false, $ret_ary = false) {
-	$browser_list  = 'nokia motorola samsung sonyericsson iphone htc android mobile mobi mini skyfire blackberry palmsource mot ';
+	$browser_list  = 'nokia motorola samsung sonyericsson ipad a500 puffin hp-tablet kftt xoom playbook gt-p1000m sch-i800 gt-p7100 ';
+	$browser_list .= 'iphone htc android mobile mobi mini skyfire blackberry palmsource mot ';
 	$browser_list .= 'flock firefox konqueror lobo msie netscape navigator mosaic netsurf lynx amaya omniweb ';
 	$browser_list .= 'googlebot googlebot-image feedfetcher-google gigabot msnbot thunderbird fennec minimo ';
 	$browser_list .= 'minefield chrome wget cheshire safari avant camino seamonkey aol bloglines ';
 	$browser_list .= 'wii playstation netfront opera mozilla gecko ubuntu';
 
 	$browser_type = array(
+		'tablet' => 'ipad a500 puffin hp-tablet kftt xoom playbook gt-p1000m sch-i800 gt-p7100',
 		'mobile' => 'android mobile nokia motorola samsung sonyericsson mobi mini skyfire blackberry iphone fennec minimo htc palmsource mot',
 		'console' => 'wii playstation',
 		'bot' => 'googlebot googlebot-image feedfetcher-google gigabot msnbot bloglines'
